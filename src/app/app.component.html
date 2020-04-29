@@ -9,21 +9,20 @@
    <input type="number" name="rows" [(ngModel)]="rows" />
 </div>
 <div class="input-fields">
-   <label> Enter the number of coulumns : </label>
-   <input type="number" [(ngModel)]="colums" />
+   <label> Enter the number of columns : </label>
+   <input type="number" [(ngModel)]="columns" />
 </div>
-<div class="input-fields">
-   <label> Enter Treasure : </label>
-   <input type="text" [(ngModel)] = "treasure" multiple>
-</div>
-<button (click)="setDimension()" type="button">Submit</button>
+
+<button (click)="initializeMatrix()" type="button">Submit</button>
+<button (click)="getDimension()" type="button">Result</button>
 </div>
 <div>
-   <table class="table">
+   <table class="table" >
       <tbody>
-         <tr *ngFor="let col of rowArray; index as i">
-            <td class="cell" (click)="getValue($event)" *ngFor="let col of colArray; index as j"> </td>
+         <tr *ngFor="let row of treasureMatrix; index as i">
+            <td class="cell" (click)="getValue(i,j)" *ngFor="let col of row; index as j">{{treasureMatrix[i][j]}} </td>
          </tr>
       </tbody>
    </table>
+   
 </div>
