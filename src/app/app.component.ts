@@ -25,9 +25,7 @@ export class AppComponent  {
  startGame() {
    this.isStartGame = true;
  }
- submit(){
-   alert(this.treasure);
- }
+ 
  setDimension(){
 
     this.colArray = [];
