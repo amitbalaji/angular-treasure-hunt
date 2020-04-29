@@ -1,6 +1,10 @@
-table, th, td {
+.table,td {
   border: 1px solid black;
 }
+.table {
+  border-collapse: collapse;
+}
+
 
 .click{
   color: white;
@@ -9,7 +13,22 @@ table, th, td {
 .doubleclick{
   color: black;
 }
-
+.error-text {
+    color : red;
+    font-size: 10px;
+}
+.text-center {
+    text-align : left;
+}
+.custom-button {
+    padding: 10px 20px;
+    background-color: #44a2be;
+    margin-top: 10px;
+    transition: .3s background ease-in-out;
+    border: 1px solid black;
+    outline: none;
+    cursor: pointer; 
+}
 .cell {
   height: 24px; 
   width: 24px;
@@ -24,5 +43,48 @@ table, th, td {
   }
 
   .container {
-    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 30px;
+    margin: 10px 30px;
+    border : 1px solid #eaeaea;
+    box-shadow : 2px 2px 5px 0 rgba(0,0,0,.2);
+  }
+
+  .button1 {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+    }
+  .button2 {
+    background-color: rgb(233, 38, 38); 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+    }
+  .button1:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+
+  .button2:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
   }

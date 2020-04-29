@@ -1,28 +1,48 @@
 <div>
-   <button (click)="startGame()" type="button">StartGame</button>
-   <button (click)="resetGame()" type="button">ResetGame</button>
-</div>
+  <h3 class="text-center">TREASURE HUNT</h3>
+	<div>
+		<button class= "button1" (click)="startGame()" type="button">StartGame</button>
+		<button class= "button2"(click)="stopGame()"   type="button">ResetGame</button>
+	</div>
 
-<div *ngIf="isStartGame" class="container">
-<div class="input-fields">
-  <label for="rows"> Enter the number of rows : </label>
-   <input type="number" name="rows" [(ngModel)]="rows" />
-</div>
-<div class="input-fields">
-   <label> Enter the number of columns : </label>
-   <input type="number" [(ngModel)]="columns" />
-</div>
+	<div *ngIf="isStartGame" class="container">
+		<div class="input-fields">
+			<label for="rows"> Enter the number of rows : </label>
+			<input type="number" name="rows" [(ngModel)]="rows" required minlength="1" customMin= "minNum" #rowname="ngModel"/>
+      <div *ngIf="rowname.invalid && rowname.dirty || rowname.touched"  class="error-text"> 
+	           <div *ngIf="rowname.errors?.required">
+                        No of rows is required.
+                </div>
+                <div *ngIf="rowname.errors?.customMin">
+                    No of rows is cannot be less than 1.
+                </div>
+        </div>
+    </div>
+			<div class="input-fields">
+				<label> Enter the number of columns : </label>
+				<input type="number" [(ngModel)]="columns" required  minlength="1" min="1" #colname="ngModel"/>
+        <div *ngIf="colname.invalid && colname.dirty || colname.touched" class="error-text"> 
+	         <div *ngIf="colname.errors?.required">
+                    No of columns is required.
+            </div>
+            <div *ngIf="colname.errors?.min">
+                No of columns is cannot be less than 1.
+            </div>
+        </div>
+      </div>
 
-<button (click)="initializeMatrix()" type="button">Submit</button>
-<button (click)="getDimension()" type="button">Result</button>
-</div>
-<div>
-   <table class="table" >
-      <tbody>
-         <tr *ngFor="let row of treasureMatrix; index as i">
-            <td class="cell" (click)="getValue(i,j)" *ngFor="let col of row; index as j">{{treasureMatrix[i][j]}} </td>
-         </tr>
-      </tbody>
-   </table>
-   
+				<button [disabled]="(colname.errors?.required && rowname.errors?.required)" 
+        class="custom-button" (click)="initializeMatrix()" type="button">Create</button>
+	</div>
+			<div *ngIf="isStartGame" class="container">
+				<table class="table">
+					<tbody>
+						<tr *ngFor="let row of treasureMatrix; index as i">
+							<td class="cell" (click)="getValue(i,j)" *ngFor="let col of row; index as j">
+								{{treasureMatrix[i][j]}} </td>
+						</tr>
+					</tbody>
+				</table>
+         <button (click)="getDimension()" type="button">Submit</button>
+			 </div>
 </div>
