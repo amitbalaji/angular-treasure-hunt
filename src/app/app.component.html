@@ -1,0 +1,29 @@
+<div>
+   <button (click)="startGame()" type="button">StartGame</button>
+   <button (click)="resetGame()" type="button">ResetGame</button>
+</div>
+
+<div *ngIf="isStartGame" class="container">
+<div class="input-fields">
+  <label for="rows"> Enter the number of rows : </label>
+   <input type="number" name="rows" [(ngModel)]="rows" />
+</div>
+<div class="input-fields">
+   <label> Enter the number of coulumns : </label>
+   <input type="number" [(ngModel)]="colums" />
+</div>
+<div class="input-fields">
+   <label> Enter Treasure : </label>
+   <input type="text" [(ngModel)] = "treasure" multiple>
+</div>
+<button (click)="setDimension()" type="button">Submit</button>
+</div>
+<div>
+   <table class="table">
+      <tbody>
+         <tr *ngFor="let col of rowArray; index as i">
+            <td class="cell" (click)="getValue($event)" *ngFor="let col of colArray; index as j"> </td>
+         </tr>
+      </tbody>
+   </table>
+</div>

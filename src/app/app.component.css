@@ -1,0 +1,28 @@
+table, th, td {
+  border: 1px solid black;
+}
+
+.click{
+  color: white;
+}
+
+.doubleclick{
+  color: black;
+}
+
+.cell {
+  height: 24px; 
+  width: 24px;
+  text-align: center;
+  font-weight: bold
+}
+
+ .input-feilds {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  .container {
+    width: 100%;
+  }
