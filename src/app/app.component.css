@@ -5,29 +5,12 @@
   border-collapse: collapse;
 }
 
-
-.click{
-  color: white;
-}
-
-.doubleclick{
-  color: black;
-}
 .error-text {
     color : red;
     font-size: 10px;
 }
 .text-center {
-    text-align : left;
-}
-.custom-button {
-    padding: 10px 20px;
-    background-color: #44a2be;
-    margin-top: 10px;
-    transition: .3s background ease-in-out;
-    border: 1px solid black;
-    outline: none;
-    cursor: pointer; 
+    text-align : center;
 }
 .cell {
   height: 24px; 

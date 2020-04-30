@@ -11,9 +11,12 @@ export class AppComponent {
   public isStartGame = false;
   public minNum = 1;
   public treasureMatrix: string[][] = [];
+  public isResult = false;
+  public isGridEditable = false;
 
 
   initializeMatrix() {
+    this.isResult = true;
     for (let i: number = 0; i < this.rows; i++) {
       this.treasureMatrix[i] = []
       for (let j: number = 0; j < this.columns; j++) {
@@ -33,9 +36,13 @@ export class AppComponent {
 
   startGame() {
     this.isStartGame = true;
+    this.rows = "";
+    this.columns = "";
   }
   stopGame() {
     this.isStartGame = false;
+    this.isResult = false;
+
   }
   getAnswer(i: any, j: any): string {
     let count = 0;
@@ -50,6 +57,7 @@ export class AppComponent {
   }
 
   getDimension() {
+    this.isGridEditable = false;
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.columns; j++) {
         if (!(this.treasureMatrix[i][j] === 'X'))
@@ -58,4 +66,5 @@ export class AppComponent {
       }
     }
   }
+  
 }
