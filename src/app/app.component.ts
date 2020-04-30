@@ -15,6 +15,9 @@ export class AppComponent {
   public isGridEditable = true;
 
 
+  /**
+   * initializeMatrix is used for creating grid with empty values
+   */
   initializeMatrix() {
     this.isResult = true;
     for (let i: number = 0; i < this.rows; i++) {
@@ -25,7 +28,9 @@ export class AppComponent {
     }
   }
 
-
+  /* 
+  * getValue is used for plotting the treasure on the grid
+  */
   getValue(i, j) {
     if (!(this.treasureMatrix[i][j] === 'X')) {
       this.treasureMatrix[i][j] = 'X'
@@ -34,16 +39,21 @@ export class AppComponent {
     }
   }
 
+ // startGame is to start the game
   startGame() {
     this.isStartGame = true;
     this.rows = "";
     this.columns = "";
   }
+
+  // stopgame is to reset the game back to intial
   stopGame() {
     this.isStartGame = false;
     this.isResult = false;
 
   }
+
+  // getAnswer to calculate all the adjancent values to treasure
   getAnswer(i: any, j: any): string {
     let count = 0;
     for (let x: number = i - 1 >= 0 ? i - 1 : 0; x <= (i + 1 < this.rows ? i + 1 : this.rows - 1); x++) {
@@ -56,6 +66,9 @@ export class AppComponent {
     return count.toString()
   }
 
+ /* getDimension is to calculate the result comparing to intial setup of  
+ * treasure
+ */
   getDimension() {
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.columns; j++) {
