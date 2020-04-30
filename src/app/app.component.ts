@@ -12,7 +12,7 @@ export class AppComponent {
   public minNum = 1;
   public treasureMatrix: string[][] = [];
   public isResult = false;
-  public isGridEditable = false;
+  public isGridEditable = true;
 
 
   initializeMatrix() {
@@ -57,7 +57,6 @@ export class AppComponent {
   }
 
   getDimension() {
-    this.isGridEditable = false;
     for (let i = 0; i < this.rows; i++) {
       for (let j = 0; j < this.columns; j++) {
         if (!(this.treasureMatrix[i][j] === 'X'))
@@ -65,6 +64,7 @@ export class AppComponent {
 
       }
     }
+    this.isGridEditable = false;
   }
   
 }

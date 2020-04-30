@@ -8,12 +8,12 @@
 	<div *ngIf="isStartGame" class="container">
 		<div class="input-fields">
 			<label for="rows"> Enter the number of rows : </label>
-			<input type="number" name="rows" [(ngModel)]="rows" required minlength="1" customMin= "minNum" #rowname="ngModel"/>
+			<input type="number" name="rows" [(ngModel)]="rows" required min="1" minlength="1"  #rowname="ngModel"/>
       <div *ngIf="rowname.invalid && rowname.dirty || rowname.touched"  class="error-text"> 
 	           <div *ngIf="rowname.errors?.required">
                         No of rows is required.
                 </div>
-                <div *ngIf="rowname.errors?.customMin">
+                <div *ngIf="rows < 1">
                     No of rows is cannot be less than 1.
                 </div>
         </div>
@@ -25,7 +25,7 @@
 	         <div *ngIf="colname.errors?.required">
                     No of columns is required.
             </div>
-            <div *ngIf="colname.errors?.min">
+            <div *ngIf="columns < 1 ">
                 No of columns is cannot be less than 1.
             </div>
         </div>
@@ -39,7 +39,7 @@
 				<table class="table">
 					<tbody>
 						<tr *ngFor="let row of treasureMatrix; index as i">
-							<td class="cell" (click)="isGridisGridEditable && getValue(i,j)" *ngFor="let col of row; index as j">
+							<td class="cell" (click)="isGridEditable && getValue(i,j)" *ngFor="let col of row; index as j">
 								{{treasureMatrix[i][j]}} </td>
 						</tr>
 					</tbody>
