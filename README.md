@@ -41,3 +41,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 
 [Edit on StackBlitz ⚡️](https://stackblitz.com/edit/amitbalaji-treasurehunt)
+
+Demo - https://amitbalaji-treasurehunt.stackblitz.io/
